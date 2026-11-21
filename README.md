@@ -1,6 +1,6 @@
-# 🥛 Dairy Cooperative Management
+# 🥛 Dairy Cooperative Milk Collection and Farmer Payout Register 
 
-A Windows Forms desktop application for managing a dairy cooperative. The system uses PostgreSQL for data persistence and provides different screens according to the responsibilities of each staff role.
+A Windows Forms desktop application for managing a dairy Milk cooperative. The system uses PostgreSQL for data persistence and provides different screens according to the responsibilities of each staff role.
 
 ## 📌 Lab 3 requirements
 
@@ -147,8 +147,4 @@ The application initializes the database schema on startup and creates these mai
 - `deliveries`
 - `payment_periods`
 - `payments`
-
-## 🌐 Project repository
-
-[Open the project on GitHub](https://github.com/Cyusa-Divince-27516/Dot_NET_Lab3)
 
