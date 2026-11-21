@@ -1,4 +1,4 @@
-# 🥛 Dairy Cooperative Milk Collection and Farmer Payout Register 
+## 🥛 Dairy Cooperative Milk Collection and Farmer Payout Register 
 
 A Windows Forms desktop application for managing a dairy Milk cooperative. The system uses PostgreSQL for data persistence and provides different screens according to the responsibilities of each staff role.
 
