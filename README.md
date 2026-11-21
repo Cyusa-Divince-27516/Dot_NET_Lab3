@@ -1,121 +1,110 @@
-# Dairy Cooperative Management
+# 🥛 Dairy Cooperative Management
 
-A Windows Forms desktop application for managing a dairy cooperative. The application uses PostgreSQL for persistence and provides role-based access for administrators, clerks, and treasurers.
+A Windows Forms desktop application for managing a dairy cooperative. The system uses PostgreSQL for data persistence and provides different screens according to the responsibilities of each staff role.
 
-## Lab 3 requirements
+## 📌 Lab 3 requirements
 
-- Windows Forms desktop application.
-- PostgreSQL database implementation.
-- Database interaction through a graphical user interface.
-- MVC architecture.
-- Role-based functionality for administrators, clerks, and treasurers.
+- 🖥️ Windows Forms desktop application
+- 🗄️ PostgreSQL database implementation
+- 🖱️ Database interaction through a graphical user interface
+- 🧩 MVC-oriented application structure
+- 👥 Role-based access for administrators, clerks, and treasurers
 
-## Features
+## 🔐 Staff login
 
-- Staff authentication with password hashing.
-- Automatic database and table initialization.
-- Automatic member-number generation for new farmers.
-- Farmer registration with name, phone, and Rwanda-style address values such as `Kigali, Nyarugenge`.
-- Phone-number validation requiring exactly 10 digits.
-- Milk-delivery recording for morning and evening sessions.
-- Accepted and rejected delivery status tracking.
-- Payment-period creation and payment calculation.
-- Payment status management.
-- Logout for every authenticated user.
-- Home navigation and role-specific pages.
+All staff members use the same login page. After successful authentication, the application displays only the pages allowed for the signed-in role. This keeps administrative functions separate from daily operational and payment responsibilities.
 
-## User roles and access
+![Staff login page](docs/images/staff-login.png)
 
-### Administrator
+_The login page accepts the staff username and password and sends the user to the appropriate role-based home page._
 
-The administrator can access:
+## 👤 User roles and functionality
 
-- Home page after login.
-- Farmers management.
-- Milk deliveries.
-- Staff accounts.
-- Payment periods and payments.
-- Logout.
+### 🛠️ Administrator
+
+The administrator manages the cooperative’s master data, staff accounts, deliveries, and payment periods. The administrator can access all application areas because this role is responsible for system-wide management.
 
 #### Administrator home page
 
 ![Administrator home page](docs/images/admin-home.png)
 
-_Add the administrator home-page screenshot at `docs/images/admin-home.png`._
+_The administrator home page provides navigation to all available sections: Farmers, Milk deliveries, Staff accounts, and Payments._
 
 #### Administrator farmers page
 
 ![Administrator farmers page](docs/images/admin-farmers.png)
 
-_Add the administrator farmers-page screenshot at `docs/images/admin-farmers.png`._
+_This page allows the administrator to register and search farmers. Member numbers are generated automatically, while the administrator enters the farmer’s name, phone number, and address._
 
 #### Administrator milk deliveries page
 
 ![Administrator milk deliveries page](docs/images/admin-deliveries.png)
 
-_Add the administrator milk-deliveries screenshot at `docs/images/admin-deliveries.png`._
+_This page records milk delivered by each farmer, including the date, session, litres, acceptance status, and rejection reason when required._
 
 #### Administrator staff accounts page
 
 ![Administrator staff accounts page](docs/images/admin-staff-accounts.png)
 
-_Add the administrator staff-accounts screenshot at `docs/images/admin-staff-accounts.png`._
+_The administrator can create staff accounts and assign the Administrator, Clerk, or Treasurer role. This page is restricted because staff permissions affect access to the rest of the system._
 
 #### Administrator payments page
 
 ![Administrator payments page](docs/images/admin-payments.png)
 
-_Add the administrator payments screenshot at `docs/images/admin-payments.png`._
+_The administrator can create payment periods and review payment calculations based on accepted milk deliveries and the configured price per litre._
 
-### Clerk
+### 🧾 Clerk
 
-The clerk can access:
-
-- Home page after login.
-- Farmers management.
-- Milk deliveries.
-- Payments.
-- Logout.
+The clerk handles daily cooperative operations. The clerk can manage farmer information and record milk deliveries, but does not manage staff accounts.
 
 #### Clerk farmers page
 
 ![Clerk farmers page](docs/images/clerk-farmers.png)
 
-_Add the clerk farmers-page screenshot at `docs/images/clerk-farmers.png`._
+_The clerk uses this page to register, search, and update farmer information during daily operations._
 
 #### Clerk milk deliveries page
 
 ![Clerk milk deliveries page](docs/images/clerk-deliveries.png)
 
-_Add the clerk milk-deliveries screenshot at `docs/images/clerk-deliveries.png`._
+_The clerk records daily morning and evening milk deliveries because this is part of the cooperative’s routine operational work._
 
 #### Clerk payments page
 
 ![Clerk payments page](docs/images/clerk-payments.png)
 
-_Add the clerk payments screenshot at `docs/images/clerk-payments.png`._
+_The clerk can view payment information to support farmer inquiries, while payment-period administration remains restricted to the administrator._
 
-### Treasurer
+### 💰 Treasurer
 
-The treasurer is responsible for payments and can access:
-
-- Home page after login.
-- Payments.
-- Logout.
+The treasurer focuses on payment activities. This role does not need access to farmer registration, delivery entry, or staff-account management, so those pages are hidden after login.
 
 #### Treasurer home page
 
 ![Treasurer home page](docs/images/treasurer-home.png)
 
-_Add the treasurer home-page screenshot at `docs/images/treasurer-home.png`._
+_The treasurer home page provides focused navigation to the Payments section, matching the role’s financial responsibility._
 
 #### Treasurer payments page
 
 ![Treasurer payments page](docs/images/treasurer-payments.png)
 
-_Add the treasurer payments screenshot at `docs/images/treasurer-payments.png`._
+_The treasurer reviews payment calculations and can mark payments as paid with a payment note. This page is the main workspace for the treasurer._
 
-## MVC architecture
+## ✅ Common application features
+
+- 🔑 Password hashing for staff accounts
+- 🚪 Logout available to every authenticated user
+- 🧭 Home navigation and role-specific menus
+- 🧑‍🌾 Automatic member-number generation for new farmers
+- 📍 Address values such as `Kigali, Nyarugenge`
+- ☎️ Phone-number validation requiring exactly 10 digits
+- 🥛 Accepted and rejected delivery tracking
+- 💵 Payment-period and payment-status management
+- 🔄 Database schema initialization on application startup
+
+## 🧩 MVC architecture
 
 The application separates user-interface, workflow, domain, and persistence responsibilities:
 
@@ -124,7 +113,7 @@ The application separates user-interface, workflow, domain, and persistence resp
 - **Models:** The `Models` folder contains application domain models such as `Farmer`.
 - **Data access:** `Database.cs` manages PostgreSQL connections, schema initialization, queries, and commands.
 
-## Technologies
+## 🛠️ Technologies
 
 - C#
 - Windows Forms
@@ -133,13 +122,15 @@ The application separates user-interface, workflow, domain, and persistence resp
 - Npgsql 4.1.13
 - Visual Studio
 
-## Prerequisites
+## 🚀 Running the application
 
-- Visual Studio with .NET Framework 4.7.2 developer tools.
-- PostgreSQL server running locally or on a configured server.
-- PostgreSQL credentials with permission to create the application database and tables.
+### Prerequisites
 
-## Configuration
+- Visual Studio with .NET Framework 4.7.2 developer tools
+- PostgreSQL server running locally or on a configured server
+- PostgreSQL credentials with permission to create the application database and tables
+
+### Configuration
 
 1. Copy `App.config.example` to `App.config` if `App.config` does not exist.
 2. Edit the `DairyDb` connection string with your PostgreSQL host, database, username, and password.
@@ -147,12 +138,9 @@ The application separates user-interface, workflow, domain, and persistence resp
 4. Open `Cyusa_Divince_Lab3.slnx` in Visual Studio.
 5. Set `Cyusa_Divince_Lab3` as the startup project.
 6. Press **F5**.
+7. On the first run, create the first administrator account.
 
-The application initializes the database schema on startup. On the first run, create the first administrator account.
-
-## Database behavior
-
-The application creates the following main tables when it starts:
+The application initializes the database schema on startup and creates these main tables:
 
 - `staff`
 - `farmers`
@@ -160,22 +148,7 @@ The application creates the following main tables when it starts:
 - `payment_periods`
 - `payments`
 
-New farmer member numbers are generated automatically by PostgreSQL. Existing farmer records are migrated from `village` to `address` when required.
+## 🌐 Project repository
 
-## GitHub submission contents
-
-The repository should include source and project files required to build the application, including:
-
-- C# source files.
-- MVC model and controller files.
-- `.csproj` and `.slnx` files.
-- `App.config.example`.
-- `lib/Npgsql.dll` and required runtime assemblies.
-- README documentation and screenshots under `docs/images/`.
-
-Generated build files and local credentials are excluded through `.gitignore`. Do not commit the local `App.config` file or database passwords.
-
-## Repository
-
-[GitHub repository](https://github.com/Cyusa-Divince-27516/Dot_NET_Lab3)
+[Open the project on GitHub](https://github.com/Cyusa-Divince-27516/Dot_NET_Lab3)
 
