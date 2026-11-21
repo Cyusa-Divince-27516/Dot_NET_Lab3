@@ -104,6 +104,14 @@ _The treasurer reviews payment calculations and can mark payments as paid with a
 - 💵 Payment-period and payment-status management
 - 🔄 Database schema initialization on application startup
 
+## 🗄️ Database schema
+
+The application creates the database tables required to manage staff, farmers, milk deliveries, payment periods, and farmer payments. The following screenshot shows the database structure used by the application.
+
+![Database schema](docs/images/database-schema.png)
+
+_The schema screenshot provides an overview of the tables created for the dairy cooperative management system and the relationships between them._
+
 ## 🧩 MVC architecture
 
 The application separates user-interface, workflow, domain, and persistence responsibilities:
